@@ -1,4 +1,4 @@
-package com.example.associatedvehicles;
+package com.example.associatedvehicles.application;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

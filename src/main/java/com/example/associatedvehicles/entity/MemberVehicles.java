@@ -13,6 +13,9 @@ public class MemberVehicles {
     private String memberId;
     private List<Vehicle> vehicles;
 
+    public MemberVehicles() {
+    }
+
     public MemberVehicles(String memberId, List<Vehicle> vehicles) {
         this.memberId = memberId;
         this.vehicles = vehicles;
