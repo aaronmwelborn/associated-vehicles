@@ -1,4 +1,4 @@
-package com.example.associatedvehicles;
+package com.example.associatedvehicles.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
