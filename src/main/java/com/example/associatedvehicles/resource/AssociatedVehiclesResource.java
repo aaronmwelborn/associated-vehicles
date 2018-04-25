@@ -2,7 +2,7 @@ package com.example.associatedvehicles.resource;
 
 import com.example.associatedvehicles.entity.MemberVehicles;
 import com.example.associatedvehicles.entity.Vehicle;
-import com.example.associatedvehicles.repository.AssociatedVehiclesRepository;
+import com.example.associatedvehicles.util.VehicleImageUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.util.List;
 
 
@@ -35,7 +36,15 @@ public class AssociatedVehiclesResource {
         MemberVehicles selectedMember = mongoOperations.findOne(query, MemberVehicles.class);
         List<Vehicle> vehicles = selectedMember.getVehicles();
 
-        //TODO: Add logic to find image from google
+        String vehicleImage = "";
+
+        try {
+            vehicleImage = VehicleImageUtility.getFirstImageFromGoogle(requestVehicle);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.err.println(vehicleImage);
 
         vehicles.add(requestVehicle);
 
